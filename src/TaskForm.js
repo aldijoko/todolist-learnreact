@@ -10,7 +10,7 @@ const TaskForm = ({ onAdd }) => {
   return (
     <form 
       onSubmit={handleSubmit}
-      className='border border-blue-600 rounded-md flex p-1 mt-5'>
+      className='border border-blue-600 rounded-md flex px-1 py-2 mt-5 mb-5'>
         <button className='bg-blue-800 border-none rounded-md cursor-pointer px-2 py-1'>+</button>
         <input 
             className='border-none w-full py-1 px-2 block bg-transparent'

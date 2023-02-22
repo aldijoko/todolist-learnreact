@@ -38,6 +38,9 @@ const App = () => {
     })
   }
 
+  const numberComplete = tasks.filter(e => e.done).length
+  const numberTotal = tasks.length
+
   const getMessage = () => {
     const percentage = numberComplete/numberTotal * 100;
     if(percentage === 100) return 'Great Job!'
@@ -46,8 +49,16 @@ const App = () => {
     return 'Keep it Going'
   }
 
-  const numberComplete = tasks.filter(e => e.done).length
-  const numberTotal = tasks.length
+ 
+
+  const renameTask = (taskIdx, newName) => {
+    setTasks(prev => {
+      const newTasks = [...prev]
+      newTasks[taskIdx].name = newName
+
+      return newTasks
+    })
+  }
   return (
     <div className='max-w-xs mx-auto my-5'>
       <h1 className='text-center text-4xl font-bold'>{numberComplete}/{numberTotal} Complete</h1>
@@ -56,7 +67,8 @@ const App = () => {
       {tasks.map((e, index) => (
         <Task {...e} 
           onToggle={done => updateComplete(index, done)}
-          onTrash={() => removeTask(index)}/>
+          onTrash={() => removeTask(index)}
+          onRename={newName => renameTask(index, newName)}/>
       ))}
       
     </div>
