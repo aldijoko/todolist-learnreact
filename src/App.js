@@ -31,8 +31,21 @@ const App = () => {
       return newTasks;
     })
   }
+
+  const getMessage = () => {
+    const percentage = numberComplete/numberTotal * 100;
+    if(percentage === 100) return 'Great Job!'
+    if(percentage >= 50) return 'Halfway There!'
+    if(percentage === 0) return 'Nothing Done!'
+    return 'Keep it Going'
+  }
+
+  const numberComplete = tasks.filter(e => e.done).length
+  const numberTotal = tasks.length
   return (
     <div className='max-w-xs mx-auto my-5'>
+      <h1 className='text-center text-4xl font-bold'>{numberComplete}/{numberTotal} Complete</h1>
+      <h2 className='text-center mt-2 text-2xl'>{getMessage()}</h2>
       <TaskForm onAdd={addTask} />
       {tasks.map((e, index) => (
         <Task {...e} onToggle={done => updateComplete(index, done)}/>
