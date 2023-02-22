@@ -9,14 +9,15 @@ const App = () => {
 
   const addTask = (name) => {
     setTasks(prev => {
-      return [...prev, {name:name, done: false}]
+      return [...prev, {name:name, completed: false}]
     })
   }
   return (
     <div className='max-w-xs mx-auto my-5'>
       <TaskForm onAdd={addTask} />
       {tasks.map(e => (
-        <Task />
+        
+        <Task {...e}/>
       ))}
       
     </div>

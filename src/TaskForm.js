@@ -5,6 +5,7 @@ const TaskForm = ({ onAdd }) => {
     const handleSubmit = (e) => {
       e.preventDefault()
       onAdd(taskName)
+      setTaskName('')
     }
   return (
     <form 
