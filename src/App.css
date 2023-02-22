@@ -50,7 +50,7 @@ div.task svg{
 } */
 div.task.done{
   opacity: 0.5;
-  text-decoration: line-through;
+  /* text-decoration: line-through; */
 }
 /* div.task-name, div.task form{
   flex-grow:1;
@@ -67,11 +67,11 @@ div.task span:before{
   position:absolute;
   top: 10px;
   transition: width .1s linear;
-}
+} */
 div.task.done span:before{
   width: 100%;
 }
-
+/* 
 h1, h2{
   text-align: center;
 }

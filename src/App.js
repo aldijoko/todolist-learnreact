@@ -32,6 +32,12 @@ const App = () => {
     })
   }
 
+  const removeTask = (taskIdx) => {
+    setTasks(prev => {
+      return prev.filter((e, index) => index !== taskIdx)
+    })
+  }
+
   const getMessage = () => {
     const percentage = numberComplete/numberTotal * 100;
     if(percentage === 100) return 'Great Job!'
@@ -48,7 +54,9 @@ const App = () => {
       <h2 className='text-center mt-2 text-2xl'>{getMessage()}</h2>
       <TaskForm onAdd={addTask} />
       {tasks.map((e, index) => (
-        <Task {...e} onToggle={done => updateComplete(index, done)}/>
+        <Task {...e} 
+          onToggle={done => updateComplete(index, done)}
+          onTrash={() => removeTask(index)}/>
       ))}
       
     </div>
