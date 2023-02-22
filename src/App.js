@@ -20,22 +20,22 @@ const App = () => {
 
   const addTask = (name) => {
     setTasks(prev => {
-      return [...prev, {name:name, completed: false}]
+      return [...prev, {name:name, done: false}]
     })
   }
 
-  const updateComplete = (taskIdx, newComplete) => {
+  const updateComplete = (taskIdx, newDone) => {
     setTasks(prev => {
       const newTasks = [...prev]
-      newTasks[taskIdx].completed = newComplete
+      newTasks[taskIdx].done = newDone
       return newTasks;
     })
   }
   return (
     <div className='max-w-xs mx-auto my-5'>
       <TaskForm onAdd={addTask} />
-      {tasks.map((e, idx) => (
-        <Task {...e} onToggle={completed => updateComplete(idx, completed)}/>
+      {tasks.map((e, index) => (
+        <Task {...e} onToggle={done => updateComplete(index, done)}/>
       ))}
       
     </div>
