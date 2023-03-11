@@ -34,7 +34,7 @@ const App = () => {
 
   const removeTask = (taskIdx) => {
     setTasks(prev => {
-      return prev.filter((e, index) => index !== taskIdx)
+      return prev.filter((index) => index !== taskIdx)
     })
   }
 
